@@ -1,3 +1,5 @@
+
+
 const playerScoreEl = document.getElementById('player-score');
 const playerChoiceEl = document.getElementById('playerChoice');
 const computerScoreEl = document.getElementById('computer-score');
@@ -35,6 +37,8 @@ function resetSelected() {
   allGemeIcons.forEach((icon) => {
     icon.classList.remove('selected');
   });
+  stopConfetti();
+  removeConfetti();
 }
 
 // Reset Score and player/cpu choice
@@ -47,7 +51,7 @@ const resetAll = () => {
   computerChoiceEl.textContent = ' --- Choihe '
   playerChoiceEl.textContent = ' --- Choice '
   resetSelected();
-}
+};
 
 // Random CPU choice
 function computerRandomChoice() {
@@ -100,6 +104,7 @@ function updateScore(playerChoice) {
   } else {
     const choice = choices[playerChoice];
     if (choice.defeats.indexOf(computerChoice) > -1) {
+      startConfetti();
       resultText.textContent = "You Won!";
       playerScoreNumber++;
       playerScoreEl.textContent = playerScoreNumber;
@@ -147,4 +152,6 @@ function select(playerChoice) {
     default:
       break;
   }
-}
+};
+
+resetAll();
