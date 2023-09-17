@@ -37,6 +37,18 @@ function resetSelected() {
   });
 }
 
+// Reset Score and player/cpu choice
+const resetAll = () => {
+  playerScoreNumber = 0;
+  computerScoreNumber = 0;
+  playerScoreEl.textContent = playerScoreNumber;
+  computerScoreEl.textContent = computerScoreNumber;
+  resultText.textContent = "";
+  computerChoiceEl.textContent = ' --- Choihe '
+  playerChoiceEl.textContent = ' --- Choice '
+  resetSelected();
+}
+
 // Random CPU choice
 function computerRandomChoice() {
   const computerChoiceNumber = Math.random();
@@ -64,7 +76,7 @@ function displayComputerChoice() {
       computerPaper.classList.add('selected');
       computerChoiceEl.textContent = ' --- Paper '
       break;
-    case 'scissors':
+    case 'scissor':
       computerScissor.classList.add('selected');
       computerChoiceEl.textContent = ' --- Scissor '
       break;
